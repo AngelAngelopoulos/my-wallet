@@ -1,0 +1,4 @@
+package personal
+
+class OtherInfo {
+}
