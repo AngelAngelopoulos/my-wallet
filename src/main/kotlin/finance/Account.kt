@@ -4,7 +4,8 @@ class Account {
     private var id = ""
     private var name = ""
     private var currency = "MXN"
-    private var balance = Balance()
+    private var totalAmount = 0
+    var balance = Balance()
     private var reports = mutableListOf<Report>()
 
     constructor(id: String, name: String){

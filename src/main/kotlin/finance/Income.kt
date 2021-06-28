@@ -1,4 +1,4 @@
 package finance
 
-class Income : Asset() {
+class Income : Asset(){
 }

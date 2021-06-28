@@ -1,4 +1,4 @@
 package finance
 
-class Investment : Asset() {
+class Investment  {
 }
