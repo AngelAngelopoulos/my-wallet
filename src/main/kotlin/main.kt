@@ -1,6 +1,7 @@
-import finance.*
+import personal.User
 
 fun main() {
+/*
 
     var account1 = Account("1", "Tarjeta Principal", "MXN")
     //var account2 = Account("1", "Tarjeta Secundaria")
@@ -24,16 +25,34 @@ fun main() {
     //debt.amount
     //gasto.amount
 
-    /*var balance = Balance()
+    */
+/*var balance = Balance()
     balance.addDebt(debt)
     balance.addExpense(gasto)
     balance.addExpense(gasto2)
-    balance.printBalance()*/
+    balance.printBalance()*//*
+
 
     account1.balance.addDebt(debt)
     account1.balance.addExpense(gasto)
     account1.balance.addExpense(gasto2)
 
     account1.balance.printBalance()
+*/
+
+    val user = User()
+
+    user.editPersonalInfo()
+
+    user.showInfo()
+
+    user.editPersonalInfo()
+
+    user.showInfo()
+
+    user.editPersonalInfo()
+
+    user.showInfo()
+
 
 }
