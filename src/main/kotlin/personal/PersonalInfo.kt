@@ -3,21 +3,24 @@ package personal
 class PersonalInfo() : Info() {
     override var infoType = "Personal Information"
 
-    private var name = ""
-    private var age = 0
-    private var gender = ""
+    private var name = "--"
+    private var age = "--"
+    private var gender = "--"
     private var contact = ContactInfo()
     private var address = AddressInfo()
     private var business = BusinessInfo()
     private var other = OtherInfo()
 
     fun fillBasicInfo(){
-        println("Please enter the following information:\nName:")
-        name = fillData("Name")
-        println("Age:")
-        age = fillData("Age").toInt()
-        println("Gender:")
-        gender = fillData("Gender")
+        println("Please enter the following information:")
+
+        var i = 0
+        val required = mapOf("Name" to name, "Age" to age, "Gender" to gender)
+        val res = editDataList(required)
+
+        this.name = res[i++]
+        this.age = res[i++]
+        this.gender = res[i]
     }
 
     override fun showInfo() {
@@ -83,12 +86,17 @@ class PersonalInfo() : Info() {
 
     override fun editInfo(){
         super.editInfo()
-        println("Please enter the required data about your basic personal info...\nName: ")
-        name = fillData("Name")
-        println("Age:")
-        age = fillData("Age").toInt()
-        println("Gender:")
-        gender = fillData("Gender")
+        println("Please enter the required data about your Basic $infoType...")
+
+        var i=0
+        val required = mapOf("Name" to name, "Age" to age, "Gender" to gender)
+        val res = editDataList(required)
+
+        this.name = res[i++]
+        this.age = res[i++]
+        this.gender = res[i]
+
+        println()
     }
 
 }
