@@ -1,10 +1,11 @@
 import personal.User
+import finance.*
 
 fun main() {
-/*
+
 
     var account1 = Account("1", "Tarjeta Principal", "MXN")
-    //var account2 = Account("1", "Tarjeta Secundaria")
+    var account2 = Account("1", "Tarjeta Secundaria")
 
     //var newDate = Date().now()
 
@@ -25,7 +26,6 @@ fun main() {
     //debt.amount
     //gasto.amount
 
-    */
 /*var balance = Balance()
     balance.addDebt(debt)
     balance.addExpense(gasto)
@@ -39,7 +39,7 @@ fun main() {
 
     account1.balance.printBalance()
 */
-
+/*
     val user = User()
 
     user.editPersonalInfo()
@@ -54,5 +54,5 @@ fun main() {
 
     user.showInfo()
 
-
+*/
 }

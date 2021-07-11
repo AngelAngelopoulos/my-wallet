@@ -1,33 +1,12 @@
 package finance
 
 class Balance {
-    private var debts = mutableListOf<Debt>()
-        get() = field
-        set(value) { field = value }
 
-    private var expenses = mutableListOf<Expense>()
-        get() = field
-        set(value) { field = value }
-
-    private var incomes = mutableListOf<Income>()
-        get() = field
-        set(value) { field = value }
-
-    private var loans = mutableListOf<Loan>()
-        get() = field
-        set(value) { field = value }
-
+/*
     fun addDebt(debt: Debt) {
         this.debts.add(debt)
     }
 
-    fun addExpense(expense: Expense) {
-        this.expenses.add(expense)
-    }
-
-    fun addIncome(income: Income) {
-        this.incomes.add(income)
-    }
 
     fun addLoan(loan: Loan) {
         this.loans.add(loan)
@@ -115,5 +94,5 @@ class Balance {
 
 
     }
-
+*/
 }

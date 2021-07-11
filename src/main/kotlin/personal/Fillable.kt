@@ -44,7 +44,7 @@ interface Fillable{
         return ansList
     }
 
-   /* fun chooseOption(options: Map<String, String>): String{
+   fun chooseOption(options: Map<String, String>): String{
 
         var res= readLine()?.lowercase()
 
@@ -55,7 +55,7 @@ interface Fillable{
         }
         // Elvis ?:p
         return res?: "0"
-    }*/
+    }
 
     fun fillName(value: String): String{
 

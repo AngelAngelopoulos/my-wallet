@@ -2,14 +2,16 @@ package finance
 
 import utils.Date
 
-class Expense(amount: Float) : Liability(amount) {
+class Expense( override var amount: Float, category: String) : Charge(amount) {
 
-    constructor(amount: Float, note: String) : this(amount) {
+    constructor(amount: Float, note: String, category: String): this(amount, category) {
         this.amount = amount
+        this.category = category
         this.note = note
     }
 
-    private val date : String
+
+    private val date: String
 
     init {
         this.date = Date().now()
@@ -23,20 +25,10 @@ class Expense(amount: Float) : Liability(amount) {
         }
         get() = field
 
-
-
-    override fun printAmount() {
-        println("----------------------------------------------------------------------------")
-        println("Expense")
-        println("Date: ${this.date}")
-        println("Amount: ${this.amount}")
-        //println("Has been payed: ")
-        //if (this.paid) print("Yes") else print("No")
-        if (this.note.isNotEmpty())
-        {
-            println("Note: ${this.note}")
+    private var category: String = ""
+        set(value) {
+            field = value
         }
-        println("----------------------------------------------------------------------------")
-    }
+        get() = field
 
 }

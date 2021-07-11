@@ -4,8 +4,21 @@ class Account {
     private var id = ""
     private var name = ""
     private var currency = "MXN"
-    private var totalAmount = 0
-    var balance = Balance()
+    private var totalAmount = 0f
+    set(value) {
+        field = value
+    }
+    get() = field
+
+    private var expenses = mutableListOf<Expense>()
+        get() = field
+        set(value) { field = value }
+
+    private var incomes = mutableListOf<Income>()
+        get() = field
+        set(value) { field = value }
+
+
     private var reports = mutableListOf<Report>()
 
     constructor(id: String, name: String){
@@ -14,15 +27,35 @@ class Account {
         println("Your account $name has been successfully created!!\nNow you can deposit some money here...")
     }
 
-    constructor(id: String, name: String, currency: String):this(id, name){
-        this.currency = currency
+    fun addExpense(expense: Expense) {
+        this.expenses.add(expense)
+        applyCharge(-1f * expense.amount);
     }
 
-    constructor(id: String, name: String, currency: String, balance: Balance): this(id,name, currency){
-        this.balance = balance
+    fun addIncome(income: Income) {
+        this.incomes.add(income)
+        applyCharge(income.amount);
+
     }
 
-    constructor(id: String, name: String, currency: String, balance: Balance, reports: Report): this(id,name,currency, balance){
-        this.reports.add(reports)
+    private fun applyCharge(charge: Float)
+    {
+        this.totalAmount =+ charge
     }
+
+    fun chooseOption(options: Map<String, String>): String{
+
+        var res= readLine()?.lowercase()
+
+        while (!options.containsKey(res)) {
+            println("Please enter a valid value.")
+            options.forEach { (k, v) -> println("$k) $v") }
+            res = readLine()?.lowercase()
+        }
+        // Elvis ?:p
+        return res?: "0"
+    }
+
+
+
 }
