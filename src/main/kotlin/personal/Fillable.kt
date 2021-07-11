@@ -1,19 +1,19 @@
 package personal
 
 import java.lang.Exception
+import java.util.*
 
 interface Fillable{
 
-    fun fillData(required: String): String{
-        var res = readLine()
-        while (res.isNullOrEmpty()){
-            println("Please enter a valid value.\n$required:")
-            res = readLine()
-        }
-        return res
-    }
+//    fun fillData(required: String): String{
+//        var res = readLine()
+//        while (res.isNullOrEmpty()){
+//            println("Please enter a valid value.\n$required:")
+//            res = readLine()
+//        }
+//        return res
+//    }
 
-    //@Suppress("UNCHECKED_CAST")
     fun editDataList(required: Map<String, String>): List<String>{
 
         var res: String?
@@ -35,6 +35,7 @@ interface Fillable{
             }
 
             when(res){
+                // Deja el valor actual
                 ">" -> v
                 // Si sale del while de arriba, no es nulo, pero IDE no lo detecta así, se utiliza...
                 // Elvis ?:p
@@ -69,6 +70,7 @@ interface Fillable{
             else if (res.isNullOrEmpty()) println("Your name can't be empty")
             // Caracteres no válidos
             else println("Your name can't have any special characters. ")
+
             println("Please enter a valid value.\nName (Actual value is \"$value\"):")
             res = readLine()
         }
@@ -84,10 +86,9 @@ interface Fillable{
         while (!isValidAge(res)){
             // No es edad, sino que saltó opción
             if(res == ">") return res
-            else {
-                println("Please enter a valid value.\nAge (Actual value is \"$value\"):")
-                res = readLine()
-            }
+            else println("Please enter a valid value.\nAge (Actual value is \"$value\"):")
+
+            res = readLine()
         }
         // Si sale del while, no es nulo, pero IDE no lo detecta así, se utiliza...
         // Elvis ?:p
@@ -104,14 +105,14 @@ interface Fillable{
     fun isValidAge(age: String?): Boolean{
 
         val iAge: Int
-        //..
+
         if (age.isNullOrEmpty()) return false
 
         // Son todos numeros, positivos, negativos o floats.
         // Try sustituye al siguiente if:
         //if (age.filter{ it in '0'..'9' || it == '-' || it == '.'}.length == age.length){
         try{
-            // Es un numero
+            // Es un numero?
             iAge = age.toFloat().toInt()
             when(iAge) {
                 in 0..5 -> { println("Babies shouldn't use smartphones..."); return false}
@@ -123,12 +124,11 @@ interface Fillable{
             }
             return true
         }
-        //}
-        // No es número
+        //} Final de if
+        // Catch, no es número
         catch(e: Exception) {
             // Atrapa exception, pero no la muestra
-            //    println("Exception: $e")
-            //else{
+            // println("Exception: $e")
             if(age!=">") println("I just checked the most recent registered numbers updates, and I don't think \"$age\" is a valid one. ")
             return false
         }

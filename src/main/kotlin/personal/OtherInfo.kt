@@ -1,7 +1,7 @@
 package personal
 
-class OtherInfo : Info(){
-    override var infoType= "Other Information"
+data class OtherInfo (
+    override var infoType: String = "Other Information"): Info(){
 
 
 }

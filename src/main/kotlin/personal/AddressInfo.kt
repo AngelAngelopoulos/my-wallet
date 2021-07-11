@@ -18,7 +18,7 @@ class AddressInfo : Info() {
 
     override fun editInfo() {
         super.editInfo()
-        println("Please enter the required data about your $infoType...\nStreet: ")
+        println("Please enter the required data about your $infoType...\n")
 
         var i = 0
         val required = mapOf("Street" to street, "Number" to number, "Neighborhood" to neighborhood, "City" to city, "State" to state)

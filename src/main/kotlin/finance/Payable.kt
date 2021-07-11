@@ -9,9 +9,6 @@ interface Payable {
         var res = readLine()
 
         while (!isValidCharge(res)) {
-            // No es edad, sino que saltó opción
-
-
             println("Please enter a valid value.\n Should be higher than 0")
             res = readLine()
         }
@@ -23,20 +20,16 @@ interface Payable {
 
     fun isValidCharge(amount: String?): Boolean {
 
-        val famount: Float
-        //..
+        val fAmount: Float
+
         if (amount.isNullOrEmpty()) return false
 
-        // Son todos numeros, positivos, negativos o floats.
         // Try sustituye al siguiente if:
         //if (amount.filter{ it in '0'..'9' || it == '-' || it == '.'}.length == amount.length){
         try {
-            // Es un numero
-            famount = amount.toFloat()
-
-            if (famount <= 0) return false
-
-            return true
+            // Son todos numeros, positivos, negativos o floats.
+            fAmount = amount.toFloat()
+            return fAmount > 0
         }
         //}
         // No es número
@@ -44,26 +37,20 @@ interface Payable {
             // Atrapa exception, pero no la muestra
             //    println("Exception: $e")
             //else{
-            if (amount != ">") println(
-                "I just checked the most recent registered numbers updates, and I don't think " +
-                        "\"$amount\" is a valid amount. "
-            )
-            return false
+           println("I just checked the most recent registered numbers updates, and I don't think \"$amount\" is a valid amount. ")
+           return false
         }
     }
 
     fun infoToShow(): String {
 
         val options = mapOf(
-            "a" to "Transport", "b" to "Food", "c" to "Entretainment", "d" to "Home",
-            "e" to "Clothes", "f" to "Health", "g" to "Auto"
+            "a" to "Transport", "b" to "Food", "c" to "Entertainment", "d" to "Home",
+            "e" to "Clothes", "f" to "Health", "g" to "Auto", "h" to "Restaurant"
         )
 
         val getResponse = {
-            println(
-                """
-            What category want you choose? (0 cancel)"""
-            )
+            println("Please, choose one from the next shown categories? (0 cancel)")
             options.forEach { (k, v) -> println("$k) $v") }
             chooseOption(options)
         }
@@ -89,27 +76,21 @@ interface Payable {
 
         println("You should choose one of this options or ")
 
-
         // Si sale del while, no es nulo, pero IDE no lo detecta así, se utiliza...
         // Elvis ?:p
         return infoToShow()
     }
 
     fun fillNote(): String {
-        println("Add a note (optiona). The length should be lower than 30 characters")
+        println("Add a note (optiona). The length should be fewer than 30 characters")
 
         var res = readLine()
 
-
             while (res.isNullOrEmpty() || res.length > 30 ) {
-                if (res.isNullOrEmpty()) {
-
-                    return "--"
-                } else {
-                    // No es edad, sino que saltó opción
-                    println("The note is too long. The length should be lower than 30 characters")
+                if (res.isNullOrEmpty()) return "--"
+                else {
+                    println("The note is too long. Length should be fewer than 30 characters")
                     res = readLine()
-
                 }
             }
 
@@ -118,13 +99,6 @@ interface Payable {
         return res
     }
 
-
-    fun isValidName(name: String?): Boolean {
-        // Contiene solo letras y espacios & al menos un caracter es una letra.
-        return if (name != null)
-            (name.filter { it in 'A'..'Z' || it in 'a'..'z' || it == ' ' }.length == name.length) && name.any { it in 'A'..'Z' || it in 'a'..'z' }
-        else false
-    }
 /*
     fun printAmount() {
         println("----------------------------------------------------------------------------")

@@ -4,27 +4,27 @@ import finance.*
 fun main() {
 
 
-    var account1 = Account("1", "Tarjeta Principal", "MXN")
-    var account2 = Account("1", "Tarjeta Secundaria")
-
-    //var newDate = Date().now()
-
-    var debt = Debt(441.40f, "kjblkjblbj")
-    //debt.printAmount()
-    //println(debt.isPaid())
-    debt.payPartial(42.45f)
-    //debt.payTotal()
-    //debt.printAmount()
-    //println(debt.isPaid())
-    //println(debt.isPaid())
-
-    var gasto = Expense(424.34f)
-    var gasto2 = Expense(32412f, "dfwwefw" )
-    //gasto.printAmount()
-    //gasto2.printAmount()
-
-    //debt.amount
-    //gasto.amount
+//    var account1 = Account("1", "Tarjeta Principal", "MXN")
+//    var account2 = Account("1", "Tarjeta Secundaria")
+//
+//    //var newDate = Date().now()
+//
+//    var debt = Debt(441.40f, "kjblkjblbj")
+//    //debt.printAmount()
+//    //println(debt.isPaid())
+//    debt.payPartial(42.45f)
+//    //debt.payTotal()
+//    //debt.printAmount()
+//    //println(debt.isPaid())
+//    //println(debt.isPaid())
+//
+//    var gasto = Expense(424.34f)
+//    var gasto2 = Expense(32412f, "dfwwefw" )
+//    //gasto.printAmount()
+//    //gasto2.printAmount()
+//
+//    //debt.amount
+//    //gasto.amount
 
 /*var balance = Balance()
     balance.addDebt(debt)
@@ -39,20 +39,20 @@ fun main() {
 
     account1.balance.printBalance()
 */
-/*
+
     val user = User()
 
-    user.editPersonalInfo()
+    user.editAllInfo()
 
     user.showInfo()
 
-    user.editPersonalInfo()
+    user.editAllInfo()
 
     user.showInfo()
 
-    user.editPersonalInfo()
+    user.editAllInfo()
 
     user.showInfo()
 
-*/
+
 }

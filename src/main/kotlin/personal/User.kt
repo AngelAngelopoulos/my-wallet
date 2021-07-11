@@ -3,18 +3,18 @@ import finance.*
 
 class User() {
     private var accounts = mutableListOf<Account>()
-    private var personalInfo = PersonalInfo()
+    private var allInfo = AllInfo()
 
     init {
-        personalInfo.fillBasicInfo()
+        allInfo.fillBasicInfo()
     }
 
     fun showInfo(){
-        personalInfo.infoToShow()
+        allInfo.infoToShow()
     }
 
-    fun editPersonalInfo(){
-        personalInfo.editMyInfo()
+    fun editAllInfo(){
+        allInfo.editMyInfo()
     }
 
 }

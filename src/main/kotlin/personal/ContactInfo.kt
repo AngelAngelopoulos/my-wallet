@@ -1,5 +1,7 @@
 package personal
 
+import java.util.*
+
 class ContactInfo: Info() {
     override var infoType= "Contact Information"
     private var phoneNumber = "--"
@@ -28,7 +30,7 @@ class ContactInfo: Info() {
         val res = editDataList(required)
 
         phoneNumber = res[i++]
-        email = res[i++]
+        email = res[i++].lowercase()
         facebook = res[i++]
         instagram = res[i++]
         linkedin = res[i]
