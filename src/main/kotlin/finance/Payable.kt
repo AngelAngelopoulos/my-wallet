@@ -4,6 +4,7 @@ import java.lang.Exception
 
 interface Payable {
 
+
     fun fillCharge(): Float {
 
         var res = readLine()
@@ -42,19 +43,31 @@ interface Payable {
         }
     }
 
-    fun infoToShow(): String {
-
+    fun infoToShowIncomes():String{
         val options = mapOf(
-            "a" to "Transport", "b" to "Food", "c" to "Entertainment", "d" to "Home",
-            "e" to "Clothes", "f" to "Health", "g" to "Auto", "h" to "Restaurant"
+            "a" to "Deposit", "b" to "Salary", "c" to "Investment", "d" to "Bonus",
+            "e" to "Holiday Pay", "f" to "Rent", "g" to "Sales", "h" to "loans"
         )
-
         val getResponse = {
             println("Please, choose one from the next shown categories? (0 cancel)")
             options.forEach { (k, v) -> println("$k) $v") }
             chooseOption(options)
         }
 
+        println("You choose ${getResponse}: ${options[getResponse.toString()]}")
+        return options[getResponse.toString()].toString()
+    }
+
+    fun infoToShowExpenses(): String {
+        val options = mapOf(
+            "a" to "Transport", "b" to "Food", "c" to "Entertainment", "d" to "Home",
+            "e" to "Clothes", "f" to "Health", "g" to "Auto", "h" to "Restaurant"
+        )
+        val getResponse = {
+            println("Please, choose one from the next shown categories? (0 cancel)")
+            options.forEach { (k, v) -> println("$k) $v") }
+            chooseOption(options)
+        }
         println("You choose ${getResponse}: ${options[getResponse.toString()]}")
         return options[getResponse.toString()].toString()
     }
@@ -72,13 +85,21 @@ interface Payable {
         return res ?: "0"
     }
 
-    fun fillCategory(): String {
+    fun fillCategoryExpenses(): String {
 
         println("You should choose one of this options or ")
 
         // Si sale del while, no es nulo, pero IDE no lo detecta así, se utiliza...
         // Elvis ?:p
-        return infoToShow()
+        return infoToShowExpenses()
+    }
+    fun fillCategoryIncome(): String {
+
+        println("You should choose one of this options or ")
+
+        // Si sale del while, no es nulo, pero IDE no lo detecta así, se utiliza...
+        // Elvis ?:p
+        return infoToShowIncomes()
     }
 
     fun fillNote(): String {

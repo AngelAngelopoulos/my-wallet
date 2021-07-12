@@ -1,6 +1,7 @@
 package finance
 
-class Balance {
+ class Balance {
+
 
 /*
     fun addDebt(debt: Debt) {
