@@ -10,8 +10,11 @@ class AllInfo(): Info() {
 
     private val options = mapOf("a" to "All", "b" to "Basic info", "c" to "Contact info", "d" to "Address info", "e" to "Business info", "0" to "Cancel")
 
-    fun fillBasicInfo(){
+    fun fillLoginInfo(){
         loginInfo.editInfo()
+    }
+
+    fun fillBasicInfo(){
         personalInfo.editInfo()
     }
 
@@ -26,6 +29,7 @@ class AllInfo(): Info() {
 
         when(getResponse()){
             "a" -> {println("\nAll info will be shown...\n")
+                loginInfo.showInfo()
                 personalInfo.showInfo()
                 contact.showInfo()
                 address.showInfo()
@@ -61,5 +65,9 @@ class AllInfo(): Info() {
             "e" -> business.editInfo()
             else -> println("No info to edit")
         }
+    }
+
+    fun getLoginInfo(): List<String>{
+        return listOf(loginInfo.getUserName(), loginInfo.getPassword())
     }
 }
