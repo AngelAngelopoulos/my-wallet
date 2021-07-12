@@ -1,23 +1,53 @@
 import personal.User
+import utils.*
 import finance.*
 
 fun main() {
 
+    val mainMenuOptions = mapOf(
+        "a" to "Add an Account",
+        "b" to "Add an Income (+)",
+        "c" to "Add an Expense (-)",
+        "d" to "Edit User's Information",
+        "e" to "Show User's Information",
+        "f" to "Show Account",
+        "g" to "Show Categories",
+        "h" to "Logout",
+        "0" to "Cancel"
+    )
+
+
     val user = User()
     user.signUp()
 
-    if (user.logIn()){
+
+    if (user.logIn()) {
+
+        while(user.loggedIn) {
+
+            val getResponse = {
+                println("""
+                    What would you like to do next?...""")
+                mainMenuOptions.forEach { (k, v) -> println("$k) $v") }
+                Menu.chooseOption(mainMenuOptions)
+            }
+
+            when (getResponse()) {
+                "a" -> user.addAccount()
+                "b" -> user.addIncome()
+                "c" -> user.addExpense()
+                "d" -> user.editAllInfo()
+                "e" -> user.showInfo()
+
+                "h" -> user.logOut()
+
+            }
 
 
-
-
-
-
+        }
 
     }
-
-
-
+}
 
 ////    var account1 = Account("1", "Tarjeta Principal", "MXN")
 ////    var account2 = Account("1", "Tarjeta Secundaria")
@@ -56,4 +86,3 @@ fun main() {
 //*/
 //
 
-}

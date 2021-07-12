@@ -61,6 +61,60 @@ class User() : Fillable{
     }
 
     fun logOut(){
-        loggedIn = false
+
+        println("""
+            Are you sure? (Y/N)""")
+        val res = readLine()
+
+        if(!res.isNullOrEmpty() && res.lowercase() == "y")  loggedIn = false
+
     }
+
+    fun addAccount(){
+
+        println("Let's add a new account!\n")
+        println("""Please, write a name for your account.
+            Some examples are: 
+            "Main account", "Savings", "My bank1", "Cash" etc... """)
+
+        val newId = accounts.size
+        val name = fillData("Account Name")
+
+        val newAccount = Account(newId, name)
+
+        accounts.add(newAccount)
+    }
+
+    fun addExpense(){
+        try{
+            accounts[ selectAccount()-1 ].addExpense()
+        } catch(e: Exception){
+            println("Operation Cancelled.")
+        }
+    }
+
+    fun addIncome(){
+        try{
+            accounts[ selectAccount() -1 ].addIncome()
+        } catch (e: Exception){
+            println("Operation Cancelled")
+        }
+    }
+
+    // Regresa el id de la cuenta que elija el usuario + 1
+    private fun selectAccount(): Int{
+
+        val options: MutableMap<String, String> = accounts.associate { (it.getId()+1).toString() to it.getName() }.toMutableMap()
+
+        options["0"] = "Cancel"
+
+        val getResponse = {
+            println("""
+            Please, select an account ( cancel)""")
+            options.forEach { (k, v) -> println("$k) $v") }
+            chooseOption( options)
+        }
+        return getResponse().toInt()
+    }
+
 }

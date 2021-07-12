@@ -10,7 +10,7 @@ interface Payable {
         var res = readLine()
 
         while (!isValidCharge(res)) {
-            println("Please enter a valid value.\n Should be higher than 0")
+            println("Please enter a valid value.\nShould be higher than 0")
             res = readLine()
         }
         // Si sale del while, no es nulo, pero IDE no lo detecta así, se utiliza...
@@ -27,10 +27,10 @@ interface Payable {
 
         // Try sustituye al siguiente if:
         //if (amount.filter{ it in '0'..'9' || it == '-' || it == '.'}.length == amount.length){
-        try {
+        return try {
             // Son todos numeros, positivos, negativos o floats.
             fAmount = amount.toFloat()
-            return fAmount > 0
+            fAmount > 0
         }
         //}
         // No es número
@@ -39,7 +39,7 @@ interface Payable {
             //    println("Exception: $e")
             //else{
             println("I just checked the most recent registered numbers updates, and I don't think \"$amount\" is a valid amount. ")
-            return false
+            false
         }
     }
 

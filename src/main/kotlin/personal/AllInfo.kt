@@ -15,7 +15,6 @@ class AllInfo(): Info() {
     }
 
     fun fillBasicInfo(){
-        loginInfo.editInfo()
         personalInfo.editInfo()
     }
 

@@ -1,6 +1,6 @@
 package finance
 
-class Account(private var id: String, private var name: String) {
+class Account(private var id: Int, private var name: String): Payable {
     private var currency = "MXN"
     private var totalAmount = 0f
         set(value) {
@@ -19,21 +19,33 @@ class Account(private var id: String, private var name: String) {
     private var reports = mutableListOf<Report>()
 
     init {
-        println("Your account $name has been successfully created!!\nNow you can deposit some money here...")
+        println("Please add an Initial amount:")
+        totalAmount = fillCharge()
+        println("Your account \"$name\" has been successfully created!!\nNow you can deposit some money here...")
     }
 
-    fun addExpense(expense: Expense) {
-        this.expenses.add(expense)
-        applyCharge(-1f * expense.amount)
+    fun addExpense() {
+        var newExp = Expense(12f,"")
+        this.expenses.add(newExp)
+        applyCharge(-1f * newExp.amount)
     }
 
-    fun addIncome(income: Income) {
-        this.incomes.add(income)
-        applyCharge(income.amount)
+    fun addIncome() {
+        var newInc = Income(14f, "")
+        this.incomes.add(newInc)
+        applyCharge(newInc.amount)
     }
 
     private fun applyCharge(charge: Float)
     {
         this.totalAmount =+ charge
+    }
+
+    fun getId(): Int{
+        return id
+    }
+
+    fun getName(): String{
+        return name
     }
 }
