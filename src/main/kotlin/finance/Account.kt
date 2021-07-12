@@ -3,10 +3,10 @@ package finance
 class Account(private var id: String, private var name: String) {
     private var currency = "MXN"
     private var totalAmount = 0f
-    set(value) {
-        field = value
-    }
-    get() = field
+        set(value) {
+            field = value
+        }
+        get() = field
 
     private var expenses = mutableListOf<Expense>()
         get() = field
