@@ -6,11 +6,12 @@ class AllInfo(): Info() {
     private var contact = ContactInfo()
     private var address = AddressInfo()
     private var business = BusinessInfo()
-    private var other = OtherInfo()
+    private var loginInfo = LoginInfo()
 
     private val options = mapOf("a" to "All", "b" to "Basic info", "c" to "Contact info", "d" to "Address info", "e" to "Business info", "0" to "Cancel")
 
     fun fillBasicInfo(){
+        loginInfo.editInfo()
         personalInfo.editInfo()
     }
 
