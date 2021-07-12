@@ -6,7 +6,7 @@ class Expense(  override var amount: Float, category: String) : Charge(amount) {
 
     constructor(amount: Float, note: String, category: String): this(amount, category) {
         this.amount = fillCharge()
-        this.category = fillCategoryExpenses()
+        this.category = fillCategory(Categories.expendOptions)
         this.note = fillNote()
     }
 

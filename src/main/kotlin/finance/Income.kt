@@ -3,11 +3,12 @@ package finance
 import utils.Date
 
 
+
 class Income( override var amount: Float, category: String) : Charge(amount) {
     constructor(amount: Float, note: String, category: String): this(amount, category) {
         this.amount = fillCharge()
         //Categorias e ingresos =/= categorias de gatos
-        this.category = fillCategoryIncome()
+        this.category = fillCategory(Categories.incomeOptions)
         this.note = fillNote()
     }
     private val date: String
