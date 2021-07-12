@@ -1,18 +1,21 @@
 package personal
 
-import java.lang.Exception
-import java.util.*
+import java.util.regex.Pattern
 
 interface Fillable{
 
-//    fun fillData(required: String): String{
-//        var res = readLine()
-//        while (res.isNullOrEmpty()){
-//            println("Please enter a valid value.\n$required:")
-//            res = readLine()
-//        }
-//        return res
-//    }
+    fun fillData(required: String, actual: String = "********"): String{
+        var res:String?
+
+        res = if(required != "Password") readLine()
+        else fillPassword()
+
+        while (res.isNullOrEmpty()){
+            println("Please enter a valid value.\n$required (Actual value is \"$actual\"):")
+            res = readLine()
+        }
+        return res
+    }
 
     fun editDataList(required: Map<String, String>): List<String>{
 
@@ -79,6 +82,23 @@ interface Fillable{
         return res?: "--"
     }
 
+    fun fillPassword(): String{
+
+        var res = readLine()
+
+        while(!isValidPassword(res)){
+            println("Please enter a valid value.\n")
+            println("""Your password:
+                Needs to be at least 8 characters long.
+                Must have at least one numeric character.
+                Must have at least one special character from the next: "# $ % & * : _")""".trimIndent())
+            println()
+            res = readLine()
+        }
+
+        return res?: "--"
+    }
+
     fun fillAge(value: String): String{
 
         var res = readLine()
@@ -100,6 +120,16 @@ interface Fillable{
         return if (name != null)
             (name.filter { it in 'A'..'Z' || it in 'a'..'z' || it == ' ' }.length == name.length) && name.any { it in 'A'..'Z' || it in 'a'..'z' }
         else false
+    }
+
+    fun isValidPassword(password: String?): Boolean {
+
+        return if(!password.isNullOrEmpty()){
+            val allowed = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[#$%*=:_])(?=\\S+$).{8,}$"
+            val pattern = Pattern.compile(allowed)
+            val matcher = pattern.matcher(password)
+            matcher.matches()
+        } else false
     }
 
     fun isValidAge(age: String?): Boolean{
