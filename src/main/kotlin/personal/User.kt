@@ -20,7 +20,7 @@ class User() : Fillable{
         println()
     }
 
-    fun showInfo(){
+    fun showUserInfo(){
         allInfo.infoToShow()
     }
 
@@ -117,4 +117,12 @@ class User() : Fillable{
         return getResponse().toInt()
     }
 
+    fun showAccMovements(){
+        try{
+            val acc = selectAccount()-1
+            accounts[ acc ].showInfo()
+        } catch(e: Exception){
+            println("Operation Cancelled.")
+        }
+    }
 }

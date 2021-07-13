@@ -5,16 +5,13 @@ import utils.Date
 class Expense() : Charge() {
 
     override var chargeType = "Expense"
+    override var currency = "MXN"
 
     private var amount: Float = 0.0f
     private val date: String = Date().now()
     private var category: String = ""
-
     private var note: String = ""
-        set(value) {
-            field = value
-        }
-        get() = field
+
 
 //    constructor(amount: Float, note: String, category: String): this(amount, category) {
 //        this.amount = fillCharge()
@@ -30,7 +27,9 @@ class Expense() : Charge() {
         println("Write a note")
         this.note = fillNote()
 
-        println("Expense created at ${this.date}")
+        println()
+        println("Expense created at $date")
+        print("$amount $currency in category $category ")
     }
 
     fun getCategory(): String {
@@ -41,5 +40,15 @@ class Expense() : Charge() {
         return this.amount
     }
 
+    override fun showInfo(){
+        super.showInfo()
+        println("""
+            Created at: $date
+            Amount: $amount
+            Category: $category
+            Note: $note
+        """.trimIndent())
+        println()
+    }
 
 }

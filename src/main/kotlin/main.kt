@@ -36,8 +36,8 @@ fun main() {
                 "b" -> user.addIncome()
                 "c" -> user.addExpense()
                 "d" -> user.editAllInfo()
-                "e" -> user.showInfo()
-
+                "e" -> user.showUserInfo()
+                "f" -> user.showAccMovements()
                 "h" -> user.logOut()
 
             }
