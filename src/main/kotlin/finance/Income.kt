@@ -2,22 +2,12 @@ package finance
 
 import utils.Date
 
-class Income( override var amount: Float, category: String) : Charge(amount) {
-    constructor(amount: Float, note: String, category: String): this(amount, category) {
-        this.amount = fillCharge()
-        //Categorias e ingresos =/= categorias de gatos
-        this.category = fillCategory(Categories.incomeOptions)
-        this.note = fillNote()
-    }
-    private val date: String
+class Income() : Charge() {
 
-    init {
-        this.date = Date().now()
-        this.amount = amount
-        // debería ser ingreso?
-        println("Expense created at ${this.date}")
-    }
+    override var chargeType = "Income"
 
+    private var amount: Float = 0.0f
+    private val date: String = Date().now()
     private var note: String = ""
         set(value) {
             field = value
@@ -25,9 +15,31 @@ class Income( override var amount: Float, category: String) : Charge(amount) {
         get() = field
 
     private var category: String = ""
-        set(value) {
-            field = value
-        }
-        get() = field
+
+//    constructor(amount: Float, note: String, category: String): this(amount, category) {
+//        this.amount = fillCharge()
+//        //Categorias e ingresos =/= categorias de gatos
+//        this.category = fillCategory(Categories.incomeOptions)
+//        this.note = fillNote()
+//    }
+
+    init {
+        println("Enter the amount:")
+        this.amount = fillCharge()
+        println("Choose a category: ")
+        this.category = fillCategory(Categories.incomeOptions)
+        println("Write a note")
+        this.note = fillNote()
+
+        println("Income created at ${this.date}")
+    }
+
+    fun getCategory(): String{
+        return this.category
+    }
+
+    fun getAmount(): Float{
+        return this.amount
+    }
 
 }

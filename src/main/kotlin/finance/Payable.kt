@@ -52,8 +52,12 @@ interface Payable {
             options.forEach { (k, v) -> println("$k) $v") }
             chooseOption(options)
         }
-        println("You choose ${getResponse}: ${options[getResponse.toString()]}")
-        return options[getResponse.toString()].toString()
+
+        val res = getResponse()
+
+        println("You choose ${res}: ${options[res]}")
+
+        return options[res]?:""
     }
 
     fun chooseOption(options: Map<String, String>): String {

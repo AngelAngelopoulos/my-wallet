@@ -25,15 +25,21 @@ class Account(private var id: Int, private var name: String): Payable {
     }
 
     fun addExpense() {
-        var newExp = Expense(12f,"")
+        val newExp = Expense()
+
+        println("${newExp.getAmount()}${currency} to ${this.name} in category ${newExp.getCategory()}.")
+
         this.expenses.add(newExp)
-        applyCharge(-1f * newExp.amount)
+        applyCharge(-1f * newExp.getAmount())
     }
 
     fun addIncome() {
-        var newInc = Income(14f, "")
+        val newInc = Income()
+
+        println("${newInc.getAmount()}${currency} to ${this.name} in category ${newInc.getCategory()}.")
+
         this.incomes.add(newInc)
-        applyCharge(newInc.amount)
+        applyCharge(newInc.getAmount())
     }
 
     private fun applyCharge(charge: Float)

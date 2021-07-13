@@ -1,9 +1,7 @@
 package finance
 
-abstract class Charge(amount: Float): Payable {
+abstract class Charge(): Payable {
 
-    abstract var amount: Float
-
-
+    abstract var chargeType: String
 
 }

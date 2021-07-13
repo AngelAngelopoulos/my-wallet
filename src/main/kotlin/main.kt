@@ -16,15 +16,14 @@ fun main() {
         "0" to "Cancel"
     )
 
-
     val user = User()
-    user.signUp()
+    //user.signUp()
 
 
-    if (user.logIn()) {
-
-        while(user.loggedIn) {
-
+    //if (user.logIn()) {
+    if(true){
+        //while(user.loggedIn) {
+        while(true){
             val getResponse = {
                 println("""
                     What would you like to do next?...""")
