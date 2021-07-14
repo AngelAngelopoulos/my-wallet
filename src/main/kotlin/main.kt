@@ -1,6 +1,5 @@
 import personal.User
 import utils.*
-import financial.*
 import kotlinx.coroutines.runBlocking
 
 fun main(): Unit = runBlocking{
