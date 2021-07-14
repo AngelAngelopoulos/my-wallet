@@ -7,7 +7,7 @@ class PersonalInfo() : Info() {
     private var age = "--"
     private var gender = "--"
 
-    override fun showInfo() {
+    override suspend fun showInfo() {
         super.showInfo()
         println("""
             Name: $name

@@ -10,7 +10,7 @@ class ContactInfo: Info() {
     private var instagram = "--"
     private var linkedin = "--"
 
-    override fun showInfo(){
+    override suspend fun showInfo(){
         super.showInfo()
         println("""
             Phone number: $phoneNumber

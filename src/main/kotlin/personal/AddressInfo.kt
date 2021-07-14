@@ -9,7 +9,7 @@ class AddressInfo : Info() {
     private var state = "--"
     private var country = "Mexico"
 
-    override fun showInfo(){
+    override suspend fun showInfo(){
         super.showInfo()
         println("""
             $street $number, $neighborhood, $city, $state, $country""".trimIndent())

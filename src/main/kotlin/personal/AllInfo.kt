@@ -1,4 +1,5 @@
 package personal
+import utils.SearchAsync
 
 class AllInfo(): Info() {
     override var infoType = "All Information"
@@ -18,7 +19,7 @@ class AllInfo(): Info() {
         personalInfo.editInfo()
     }
 
-    fun infoToShow() {
+    suspend fun infoToShow() {
         // El map de las opciones se repetía en ambas funciones así que se colocó como propiedad de la clase.
         val getResponse = {
             println("""
@@ -28,17 +29,31 @@ class AllInfo(): Info() {
         }
 
         when(getResponse()){
-            "a" -> {println("\nAll info will be shown...\n")
+            "a" -> {
+                SearchAsync.searchInfo()
+                println("\nAll info will be shown...\n")
                 loginInfo.showInfo()
                 personalInfo.showInfo()
                 contact.showInfo()
                 address.showInfo()
                 business.showInfo()
             }
-            "b" -> personalInfo.showInfo()
-            "c" -> contact.showInfo()
-            "d" -> address.showInfo()
-            "e" -> business.showInfo()
+            "b" -> {
+                SearchAsync.searchInfo()
+                personalInfo.showInfo()
+            }
+            "c" -> {
+                SearchAsync.searchInfo()
+                contact.showInfo()
+            }
+            "d" -> {
+                SearchAsync.searchInfo()
+                address.showInfo()
+            }
+            "e" -> {
+                SearchAsync.searchInfo()
+                business.showInfo()
+            }
             else -> println("No info to show")
         }
     }

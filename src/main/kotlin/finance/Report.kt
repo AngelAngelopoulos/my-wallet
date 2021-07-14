@@ -5,4 +5,8 @@ class Report {
     private var date = ""
     private var filename = ""
     private var balances = mutableListOf<Balance>()
+
+    suspend fun createReport() {
+
+    }
 }

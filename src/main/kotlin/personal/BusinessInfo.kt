@@ -11,7 +11,7 @@ class BusinessInfo : Info() {
         businessContactInfo.infoType = "Business Contact Information"
     }
 
-    override fun showInfo(){
+    override suspend fun showInfo(){
         super.showInfo()
         println("""
             Company: $company

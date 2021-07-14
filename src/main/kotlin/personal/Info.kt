@@ -1,17 +1,28 @@
 package personal
 
-abstract class Info : Fillable{
+import kotlinx.coroutines.delay
+
+abstract class Info : Fillable {
     abstract var infoType: String
 
-    open fun showInfo(){
-        println("""Next info will be shown:
-            --------------------------$infoType--------------------------.""".trimIndent())
+
+
+    open suspend fun showInfo() {
+
+
+
+        println(
+            """Next info will be shown:
+            --------------------------$infoType--------------------------.""".trimIndent()
+        )
         println()
     }
 
-    open fun editInfo(){
-        println("""Next info will be edited:
-            --------------------------$infoType--------------------------""".trimIndent())
+    open fun editInfo() {
+        println(
+            """Next info will be edited:
+            --------------------------$infoType--------------------------""".trimIndent()
+        )
         println()
     }
 

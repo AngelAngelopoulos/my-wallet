@@ -1,5 +1,7 @@
 package finance
 
+import utils.SearchAsync
+
 class Account(private var id: Int, private var name: String): Payable {
     private var currency = "MXN"
     private var initialAmount = 0f
@@ -45,7 +47,8 @@ class Account(private var id: Int, private var name: String): Payable {
         return name
     }
 
-    fun showInfo(){
+    suspend fun showInfo(){
+        SearchAsync.searchInfo()
         println("""
             ----------------For account $name:----------------
             
@@ -59,5 +62,10 @@ class Account(private var id: Int, private var name: String): Payable {
 
         if(expenses.isEmpty()) println("No expenses yet. There is nothing to show.")
         else expenses.forEach { it.showInfo() }
+    }
+
+    fun generateReport()
+    {
+
     }
 }

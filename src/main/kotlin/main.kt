@@ -1,8 +1,9 @@
 import personal.User
 import utils.*
 import finance.*
+import kotlinx.coroutines.runBlocking
 
-fun main() {
+fun main(): Unit = runBlocking{
 
     val mainMenuOptions = mapOf(
         "a" to "Add an Account",

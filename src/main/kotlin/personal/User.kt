@@ -20,7 +20,7 @@ class User() : Fillable{
         println()
     }
 
-    fun showUserInfo(){
+    suspend fun showUserInfo(){
         allInfo.infoToShow()
     }
 
@@ -117,7 +117,7 @@ class User() : Fillable{
         return getResponse().toInt()
     }
 
-    fun showAccMovements(){
+    suspend fun showAccMovements(){
         try{
             val acc = selectAccount()-1
             accounts[ acc ].showInfo()
