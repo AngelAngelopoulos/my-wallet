@@ -40,6 +40,10 @@ class Expense() : Charge() {
         return this.amount
     }
 
+    fun getDate(): String {
+        return this.date
+    }
+
     override fun showInfo(){
         super.showInfo()
         println("""

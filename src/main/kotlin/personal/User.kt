@@ -125,4 +125,16 @@ class User() : Fillable{
             println("Operation Cancelled.")
         }
     }
+
+    suspend fun printReport() {
+
+        try{
+            val acc = selectAccount()-1
+            accounts[ acc ].generateNewReport()
+        } catch(e: Exception){
+            println("Operation Cancelled.")
+            println(e.message)
+        }
+    }
+
 }

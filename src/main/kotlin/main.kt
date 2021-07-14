@@ -12,7 +12,7 @@ fun main(): Unit = runBlocking{
         "d" to "Edit User's Information",
         "e" to "Show User's Information",
         "f" to "Show Account",
-        "g" to "Show Categories",
+        "g" to "Print Report",
         "h" to "Logout",
         "0" to "Cancel"
     )
@@ -39,6 +39,7 @@ fun main(): Unit = runBlocking{
                 "d" -> user.editAllInfo()
                 "e" -> user.showUserInfo()
                 "f" -> user.showAccMovements()
+                "g" -> user.printReport()
                 "h" -> user.logOut()
 
             }

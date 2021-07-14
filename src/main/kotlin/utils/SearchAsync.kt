@@ -16,5 +16,16 @@ class SearchAsync {
             println()
 
         }
+
+        suspend fun printInfo() {
+            println()
+            println("Generating Report...")
+            delay(800)
+            println("Printing Report...")
+            delay(1200)
+            println()
+
+        }
     }
+
 }
