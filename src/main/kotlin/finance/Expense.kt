@@ -2,32 +2,53 @@ package finance
 
 import utils.Date
 
-class Expense(  override var amount: Float, category: String) : Charge(amount) {
+class Expense() : Charge() {
 
-    constructor(amount: Float, note: String, category: String): this(amount, category) {
-        this.amount = fillCharge()
-        this.category = fillCategoryExpenses()
-        this.note = fillNote()
-    }
+    override var chargeType = "Expense"
+    override var currency = "MXN"
 
-    private val date: String
+    private var amount: Float = 0.0f
+    private val date: String = Date().now()
+    private var category: String = ""
+    private var note: String = ""
+
+
+//    constructor(amount: Float, note: String, category: String): this(amount, category) {
+//        this.amount = fillCharge()
+//        this.category = fillCategory(Categories.expendOptions)
+//        this.note = fillNote()
+//    }
 
     init {
-        this.date = Date().now()
-        this.amount = amount
-        println("Expense created at ${this.date}")
+        println("Enter the amount:")
+        this.amount = fillCharge()
+        println("Choose a category: ")
+        this.category = fillCategory(Categories.expendOptions)
+        println("Write a note")
+        this.note = fillNote()
+
+        println()
+        println("Expense created at $date")
+        print("$amount $currency in category $category ")
     }
 
-    private var note: String = ""
-        set(value) {
-            field = value
-        }
-        get() = field
+    fun getCategory(): String {
+        return this.category
+    }
 
-    private var category: String = ""
-        set(value) {
-            field = value
-        }
-        get() = field
+    fun getAmount(): Float{
+        return this.amount
+    }
+
+    override fun showInfo(){
+        super.showInfo()
+        println("""
+            Created at: $date
+            Amount: $amount
+            Category: $category
+            Note: $note
+        """.trimIndent())
+        println()
+    }
 
 }

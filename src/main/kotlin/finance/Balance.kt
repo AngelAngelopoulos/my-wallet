@@ -1,6 +1,6 @@
 package finance
 
- class Balance {
+class Balance {
 
 
 /*

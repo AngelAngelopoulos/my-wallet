@@ -15,5 +15,4 @@ abstract class Info : Fillable{
         println()
     }
 
-
 }
