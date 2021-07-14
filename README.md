@@ -7,7 +7,7 @@ Los commits anteriores son mostrados en la rama ``main``. Por favor revisarlos, 
 
 Esta rama fue creada para implementar las corrutinas en en un nuevo proyecto
 
-# Contribuidores:
+## Contribuidores:
 
 Luis Angel Alvarado Hernandez
 David Perez Morales
