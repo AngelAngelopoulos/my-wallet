@@ -5,7 +5,7 @@ Este proyecto fue creado pr el Equipo 17 del Grupo 1 para el Modulo Kotlin Funda
 
 Los commits anteriores son mostrados en la rama ``main``. Por favor revisarlos, ahi está mucha parte del trabajo.
 
-Esta rama fue creada para implementar las corrutinas en en un nuevo proyecto
+Esta rama fue creada para implementar las corrutinas en en un nuevo proyecto. Así que se volvio la rama principal, favor de clonar desde aquí.
 
 ## Contribuidores:
 - Hannia Jellian Rodríguez Vargas
