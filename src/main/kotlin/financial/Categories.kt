@@ -1,4 +1,4 @@
-package finance
+package financial
 
 class Categories(val name: String) {
 

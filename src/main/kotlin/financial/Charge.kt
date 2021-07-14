@@ -1,4 +1,4 @@
-package finance
+package financial
 
 abstract class Charge(): Payable {
 

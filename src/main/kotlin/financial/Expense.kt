@@ -1,4 +1,4 @@
-package finance
+package financial
 
 import utils.Date
 

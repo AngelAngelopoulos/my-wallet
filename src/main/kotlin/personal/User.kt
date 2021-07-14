@@ -1,5 +1,5 @@
 package personal
-import finance.*
+import financial.*
 
 class User() : Fillable{
     private var accounts = mutableListOf<Account>()

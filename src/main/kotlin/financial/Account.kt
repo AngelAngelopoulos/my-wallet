@@ -1,4 +1,4 @@
-package finance
+package financial
 
 import utils.Menu
 import utils.SearchAsync
@@ -10,7 +10,6 @@ class Account(private var id: Int, private var name: String) : Payable {
     private var totalAmount = 0f
     private var expenses = mutableListOf<Expense>()
     private var incomes = mutableListOf<Income>()
-    private var reports = mutableListOf<Report>()
 
     init {
         println("Please add an Initial amount:")
@@ -82,8 +81,7 @@ class Account(private var id: Int, private var name: String) : Payable {
 
 
 
-        when (option)
-        {
+        when (option) {
             "a" -> printShortVersions("Incomes")
             "b" -> printShortVersions("Expenses")
             "c" -> printShortVersions("All Charges")
@@ -99,8 +97,7 @@ class Account(private var id: Int, private var name: String) : Payable {
 
         var filename = readLine()
 
-        while (filename.isNullOrEmpty() )
-        {
+        while (filename.isNullOrEmpty()) {
             println("Wrog value. Write the filename:")
 
             filename = readLine()
@@ -121,8 +118,7 @@ class Account(private var id: Int, private var name: String) : Payable {
                 incomes.forEach { out.println("${cont++}\t|\t${it.getDate()}\t|\t${it.getAmount()}\t") }
             } else if (option == "Expenses") {
                 expenses.forEach { out.println("${cont++}\t|\t${it.getDate()}\t|\t${it.getAmount()}\t") }
-            } else
-            {
+            } else {
                 out.println("---------------------Incomes----------------------------")
                 out.println("----------------------------------------------------------")
 
@@ -138,7 +134,6 @@ class Account(private var id: Int, private var name: String) : Payable {
 
 
         println("Writed to file")
-
 
 
     }
